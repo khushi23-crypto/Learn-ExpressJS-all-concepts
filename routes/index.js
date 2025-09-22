@@ -15,6 +15,11 @@ router.get("/checkban", function (req, res) {
   }
 });
 
+router.get("/resmoveban", function(req,res){
+  req.session.ban = false;
+  res.send("ban removed")
+})
+
 module.exports = router;
 
 /*
