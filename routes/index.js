@@ -3,22 +3,13 @@ var router = express.Router();
 //const userModel = require("./users");
 
 
-
 router.get('/', function (req, res) {
-  req.session.ban = true;
-  res.render('index');
+  res.cookie("age", 22);
+  res.render("index");
 });
 
-router.get("/checkban", function (req, res) {
-  if (req.session.ban === true) {
-    res.send("you are banned")
-  }
-});
 
-router.get("/resmoveban", function(req,res){
-  req.session.ban = false;
-  res.send("ban removed")
-})
+
 
 module.exports = router;
 
@@ -62,3 +53,28 @@ router.get('/create', async function (req, res) {
   res.send(createUser)
 });
  */
+
+
+/* router.get('/', function (req, res) {
+ //req.session.koibhinaam= koi bhi value;
+  req.session.ban = true;
+  res.render('index');
+}); */
+
+
+
+/* router.get("/checkban", function (req, res) {
+  if (req.session.ban === true) {
+    res.send("you are banned")
+  }
+  else{
+    res.send("you are not banned")
+  }
+});
+
+router.get("/removeban", function(req,res){
+  req.session.destroy(function(err){
+   if (err) throw err;
+    res.send("ban removed")
+  })
+}) */
