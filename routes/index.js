@@ -7,6 +7,19 @@ router.get('/', function (req, res) {
   res.render('index');
 });
 
+
+router.get("/delete", async function(req,res){
+  let deleteduser= await userModel.findOneAndDelete({
+    username:"Kajal"
+  });
+  res.send(deleteduser)
+})
+
+ router.get("/allusers", async function (req, res) {
+  let allusers = await userModel.find();
+  res.send(allusers)
+})
+
 /* router.get("/allusers", async function (req, res) {
   let allusers = await userModel.findOne({username:"Kajal"});
   res.send(allusers)
