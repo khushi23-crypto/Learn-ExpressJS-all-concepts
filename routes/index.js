@@ -1,31 +1,53 @@
 var express = require('express');
 var router = express.Router();
-const userModel = require("./users");
+//const userModel = require("./users");
+
 
 
 router.get('/', function (req, res) {
+  req.session.ban = true;
   res.render('index');
 });
 
+router.get("/checkban", function (req, res) {
+  if (req.session.ban === true) {
+    res.send("you are banned")
+  }
+});
 
-router.get("/delete", async function(req,res){
+module.exports = router;
+
+/*
+ router.get("/delete", async function(req,res){
   let deleteduser= await userModel.findOneAndDelete({
     username:"Kajal"
   });
   res.send(deleteduser)
 })
+  */
 
+
+
+/*
  router.get("/allusers", async function (req, res) {
-  let allusers = await userModel.find();
-  res.send(allusers)
-})
+ let allusers = await userModel.find();
+ res.send(allusers)
+}) 
+ */
 
-/* router.get("/allusers", async function (req, res) {
+
+
+/*
+ router.get("/allusers", async function (req, res) {
   let allusers = await userModel.findOne({username:"Kajal"});
   res.send(allusers)
 })
  */
-/* router.get('/create', async function (req, res) {
+
+
+
+/* 
+router.get('/create', async function (req, res) {
   //async function createUser() {
   const createUser = await userModel.create({
     username: "Kajal",
@@ -35,4 +57,3 @@ router.get("/delete", async function(req,res){
   res.send(createUser)
 });
  */
-module.exports = router;
