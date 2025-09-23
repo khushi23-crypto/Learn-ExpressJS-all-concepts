@@ -92,3 +92,17 @@ res.clearCookie("age")
 res.send("clear ho gyi")
 });
 */
+
+
+//USE FLASH-CONNECT
+
+/* router.get('/failed', function (req, res) {
+  req.flash("age",12)
+  res.send("data set ho gyi")
+});
+
+router.get('/check', function (req, res) {
+  console.log(req.flash("age"))
+  res.send("check");
+});
+ */
