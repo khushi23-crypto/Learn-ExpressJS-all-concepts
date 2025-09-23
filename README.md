@@ -116,3 +116,14 @@ router.get('/check', function (req, res) {
   res.send(user);
 })
  */
+
+//FIND CATEGORIES WISE DATA
+
+   <!-- let user = await userModel.find({categories: {$all : ['sweetest','kind']}});
+ -->
+
+ // DATE SET
+ <!-- //var date1=new Date ('yyyy-mm-dd')
+  var date1=new Date ('2024-06-20');
+  var date2=new Date ('2024-06-25');
+   -->
