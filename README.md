@@ -106,3 +106,13 @@ router.get('/check', function (req, res) {
   res.send("check");
 });
  */
+
+//CASE IN SENSITIVE
+
+/* router.get("/find", async function (req, res) {
+  //new RegExp(Search,flags)
+  var regex = new RegExp('^Kajal$', 'i')   //i means case insensitive
+  let user = await userModel.find({ username: regex });
+  res.send(user);
+})
+ */

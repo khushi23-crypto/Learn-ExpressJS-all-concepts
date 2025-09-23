@@ -23,11 +23,10 @@ $ - end hai */
 
 
 router.get("/find", async function (req, res) {
-  //new RegExp(Search,flags)
-  var regex = new RegExp('^Kajal$', 'i')   //i means case insensitive
-  let user = await userModel.find({ username: regex });
+  let user = await userModel.find({categories: {$all : ['sweetest','kind']}});
   res.send(user);
-})
+});
+
 
 module.exports = router;
 
