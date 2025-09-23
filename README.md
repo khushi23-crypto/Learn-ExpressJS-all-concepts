@@ -1,78 +1,74 @@
 //CREATE USERS DATA
 
-/*
+/_
 router.get('/create', async function (req, res) {
-  //async function createUser() {
-  const createUser = await userModel.create({
-    username: "Kajal",
-    name: "Kajal",
-    age: 22
-  });
-  res.send(createUser)
+//async function createUser() {
+const createUser = await userModel.create({
+username: "Kajal",
+name: "Kajal",
+age: 22
 });
- */
+res.send(createUser)
+});
+_/
 
 //READ ALL USERS DATA
 
-/*
- router.get("/allusers", async function (req, res) {
- let allusers = await userModel.find();
- res.send(allusers)
+/_
+router.get("/allusers", async function (req, res) {
+let allusers = await userModel.find();
+res.send(allusers)
 })
- */
+_/
 
 //FIND ONE USERNAME FROM ALL USERS
 
-/*
- router.get("/allusers", async function (req, res) {
-  let allusers = await userModel.findOne({username:"Kajal"});
-  res.send(allusers)
+/_
+router.get("/allusers", async function (req, res) {
+let allusers = await userModel.findOne({username:"Kajal"});
+res.send(allusers)
 })
- */
-
+_/
 
 //FIND ONE AND DELETE USERNAME OR ANYTHING
 
-/*
- router.get("/delete", async function(req,res){
-  let deleteduser= await userModel.findOneAndDelete({
-    username:"Kajal"
-  });
-  res.send(deleteduser)
+/_
+router.get("/delete", async function(req,res){
+let deleteduser= await userModel.findOneAndDelete({
+username:"Kajal"
+});
+res.send(deleteduser)
 })
-  */
-
+_/
 
 //CREATE ,CHECK, DELETE SESSION
 
-/* router.get('/', function (req, res) {
- //req.session.koibhinaam= koi bhi value;
-  req.session.ban = true;
-  res.render('index');
-}); */
+/_ router.get('/', function (req, res) {
+//req.session.koibhinaam= koi bhi value;
+req.session.ban = true;
+res.render('index');
+}); _/
 
-
-/*
- router.get("/checkban", function (req, res) {
-  if (req.session.ban === true) {
-    res.send("you are banned")
-  }
-  else{
-    res.send("you are not banned")
-  }
+/\*
+router.get("/checkban", function (req, res) {
+if (req.session.ban === true) {
+res.send("you are banned")
+}
+else{
+res.send("you are not banned")
+}
 });
 
 router.get("/removeban", function(req,res){
-  req.session.destroy(function(err){
-   if (err) throw err;
-    res.send("ban removed")
-  })
+req.session.destroy(function(err){
+if (err) throw err;
+res.send("ban removed")
 })
-  */
-
+})
+\*/
 
 //CREATE , READ , DELETE COOKIE
-/*
+/\*
 router.get('/', function (req, res) {
 res.cookie("age", 22);
 res.render("index");
@@ -91,38 +87,38 @@ router.get('/delete', function (req, res) {
 res.clearCookie("age")
 res.send("clear ho gyi")
 });
-*/
-
+\*/
 
 //USE FLASH-CONNECT
 
-/* router.get('/failed', function (req, res) {
-  req.flash("age",12)
-  res.send("data set ho gyi")
+/\* router.get('/failed', function (req, res) {
+req.flash("age",12)
+res.send("data set ho gyi")
 });
 
 router.get('/check', function (req, res) {
-  console.log(req.flash("age"))
-  res.send("check");
+console.log(req.flash("age"))
+res.send("check");
 });
- */
+\*/
 
 //CASE IN SENSITIVE
 
-/* router.get("/find", async function (req, res) {
-  //new RegExp(Search,flags)
-  var regex = new RegExp('^Kajal$', 'i')   //i means case insensitive
-  let user = await userModel.find({ username: regex });
-  res.send(user);
+/_ router.get("/find", async function (req, res) {
+//new RegExp(Search,flags)
+var regex = new RegExp('^Kajal$', 'i') //i means case insensitive
+let user = await userModel.find({ username: regex });
+res.send(user);
 })
- */
+_/
 
 //FIND CATEGORIES WISE DATA
 
    <!-- let user = await userModel.find({categories: {$all : ['sweetest','kind']}});
  -->
 
- // DATE SET
+// DATE SET
+
  <!-- 
  var date1=new Date ('yyyy-mm-dd')
   var date1=new Date ('2024-06-20');
@@ -131,23 +127,42 @@ router.get('/check', function (req, res) {
 
    -->
 
-   //FIELD EXISTS OR NOT 
+//FIELD EXISTS OR NOT
+
    <!-- 
      let user =await userModel.find({categories:{$exists:true}});
     -->
 
     //
-    <!-- 
+    <!--
     router.get("/find", async function (req, res) {
 
-  let user = await userModel.find({
-    $expr: {
+let user = await userModel.find({
+$expr: {
       $and: [
         { $gte: [{ $strLenCP: "$nickname" }, 0] },
-        { $lte: [{ $strLenCP: "$nickname" }, 7] }
-      ]
-    }
-  });
-  res.send(user);
+{ $lte: [{ $strLenCP: "$nickname" }, 7] }
+]
+}
 });
-     -->
+res.send(user);
+});
+-->
+
+     //user info
+     <!--
+     router.get("/create", async function (req, res) {
+
+const userdata = await userModel.create({
+username: "kajalji",
+nickname: "hehehehe",
+description: "she is the engineer",
+categories: ['cutie', 'kind', 'sweetest', 'jaan'],
+})
+res.send(userdata);
+})
+-->
+
+/* ^ - shuruaat hai
+^kajal$
+$ - end hai \*/
