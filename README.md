@@ -136,4 +136,18 @@ router.get('/check', function (req, res) {
      let user =await userModel.find({categories:{$exists:true}});
     -->
 
-    
+    //
+    <!-- 
+    router.get("/find", async function (req, res) {
+
+  let user = await userModel.find({
+    $expr: {
+      $and: [
+        { $gte: [{ $strLenCP: "$nickname" }, 0] },
+        { $lte: [{ $strLenCP: "$nickname" }, 7] }
+      ]
+    }
+  });
+  res.send(user);
+});
+     -->
