@@ -123,7 +123,17 @@ router.get('/check', function (req, res) {
  -->
 
  // DATE SET
- <!-- //var date1=new Date ('yyyy-mm-dd')
+ <!-- 
+ var date1=new Date ('yyyy-mm-dd')
   var date1=new Date ('2024-06-20');
   var date2=new Date ('2024-06-25');
+    let user =await userModel.find({datecreated: {$gte: date1, $lt: date2}});
+
    -->
+
+   //FIELD EXISTS OR NOT 
+   <!-- 
+     let user =await userModel.find({categories:{$exists:true}});
+    -->
+
+    

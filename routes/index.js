@@ -23,9 +23,8 @@ $ - end hai */
 
 
 router.get("/find", async function (req, res) {
-  var date1=new Date ('2025-09-23');
-  var date2=new Date ('2025-09-24');
-  let user =await userModel.find({datecreated: {$gte: date1, $lt: date2}});
+  
+  let user =await userModel.find({categories:{$exists:true}});
   res.send(user);
 });
 
