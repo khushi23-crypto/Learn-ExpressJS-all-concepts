@@ -24,7 +24,7 @@ app.use(expressSession({
 }));
 
 //passport initialization for perform authentication and authorization
-app.use(passport.initialize());
+/* app.use(passport.initialize());
 //on passport session module jisse ki passport apne session ko manage and save kr ske
 app.use(passport.session());
 //code jiske andr checking hogi ,perform hashing and salting
@@ -32,8 +32,8 @@ app.use(passport.session());
 passport.serializeUser(usersRouter.serializeUser());
 passport.deserializeUser(usersRouter.deserializeUser()); 
  
-
-app.use(flash());
+ */
+//app.use(flash());
 
 /* app.use(session({
   resave: false, //agr session ki value change na huyi ho to dobara save na kre

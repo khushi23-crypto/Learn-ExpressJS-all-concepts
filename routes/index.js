@@ -1,19 +1,47 @@
 var express = require('express');
 var router = express.Router();
 const userModel = require("./users");
+const postModel = require("./posts");
 
-// require passport
-const passport = require("passport");
-const localStrategy = require("passport-local").Strategy;
-
-// set up passport local strategy
-passport.use(new localStrategy(userModel.authenticate()));
 
 router.get('/', function (req, res) {
   res.render("index");
 });
 
-router.get('/profile',isLoggedIn ,function (req, res) {
+router.get('/createuser', async function (req, res) {
+  let createduser = await userModel.create({
+    username: "kajalsaini",
+    password: "kajal",
+    posts: [],
+    email: "kajal44@email.com",
+    fullname: "kajalsaini"
+  })
+  res.send(createduser);
+});
+
+router.get('/createpost', async function (req, res) {
+  let createdpost = await postModel.create({
+    postText: "Hello everyone"
+  })
+  res.send(createdpost);
+});
+module.exports = router;
+
+
+
+
+
+
+// require passport
+/* const passport = require("passport");
+const localStrategy = require("passport-local").Strategy;
+
+// set up passport local strategy
+passport.use(new localStrategy(userModel.authenticate()));
+ */
+
+
+/* router.get('/profile',isLoggedIn ,function (req, res) {
   res.render('profile');
 });
 
@@ -51,6 +79,5 @@ function isLoggedIn(req,res,next){
   }
   res.redirect("/");
 }
-
-module.exports = router;
+ */
 
