@@ -7,6 +7,10 @@ const postModel = require("./posts");
 router.get('/', function (req, res) {
   res.render("index");
 });
+router.get('/alluserposts',async function (req, res) {
+  let user = await userModel.find({_id:"68d39d408ff75490f854d845"}).populate("posts");
+  res.send(user);
+});
 
 router.get('/createuser', async function (req, res) {
   let createduser = await userModel.create({
@@ -21,13 +25,13 @@ router.get('/createuser', async function (req, res) {
 
 router.get('/createpost', async function (req, res) {
   let createdpost = await postModel.create({
-    postText: "Hello everyone",
+    postText: "Hello kaise ho sare",
     user:"68d39d408ff75490f854d845"
   })
   let user = await userModel.findOne({_id:"68d39d408ff75490f854d845"});
   user.posts.push(createdpost._id);
-  await user.save();g
-  res.send(createdpost);
+  await user.save();
+  res.send("done");
 });
 
 
