@@ -21,10 +21,16 @@ router.get('/createuser', async function (req, res) {
 
 router.get('/createpost', async function (req, res) {
   let createdpost = await postModel.create({
-    postText: "Hello everyone"
+    postText: "Hello everyone",
+    user:"68d39d408ff75490f854d845"
   })
+  let user = await userModel.findOne({_id:"68d39d408ff75490f854d845"});
+  user.posts.push(createdpost._id);
+  await user.save();g
   res.send(createdpost);
 });
+
+
 module.exports = router;
 
 
